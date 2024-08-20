@@ -7,10 +7,10 @@ WORKDIR /app
 RUN mkdir -p /app/har_and_cookies /app/generated_images
 
 # 暴露必要的端口
-EXPOSE 8080 1337 7900
+EXPOSE 1337
 
 # 设置环境变量
-ENV PORT=8080
+ENV PORT=1337
 
 # 启动命令
 CMD ["python", "app.py"]
