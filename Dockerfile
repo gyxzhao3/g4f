@@ -7,8 +7,8 @@ WORKDIR /app
 COPY app.py .
 COPY requirements.txt .
 
-# 在用户空间安装依赖
-RUN pip install --user --upgrade pip && pip install --user -r requirements.txt
+# 使用 python3 -m pip 安装依赖
+RUN python3 -m pip install --user --upgrade pip && python3 -m pip install --user -r requirements.txt
 
 # 创建必要的目录
 RUN mkdir -p /app/har_and_cookies /app/generated_images
@@ -21,4 +21,4 @@ ENV PORT=1337
 ENV PATH="/root/.local/bin:${PATH}"
 
 # 启动命令
-CMD ["python", "app.py"]
+CMD ["python3", "app.py"]
