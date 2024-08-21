@@ -7,8 +7,10 @@ WORKDIR /app
 COPY app.py .
 COPY requirements.txt .
 
-# 安装额外的依赖
-RUN pip install -r requirements.txt
+# 创建虚拟环境并安装依赖
+RUN python3 -m venv /app/venv
+ENV PATH="/app/venv/bin:$PATH"
+RUN pip install --upgrade pip && pip install -r requirements.txt
 
 # 创建必要的目录
 RUN mkdir -p /app/har_and_cookies /app/generated_images
@@ -20,4 +22,4 @@ EXPOSE 1337
 ENV PORT=1337
 
 # 启动命令
-CMD ["python", "app.py"]
+CMD ["/app/venv/bin/python", "app.py"]
