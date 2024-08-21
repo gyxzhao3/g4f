@@ -5,10 +5,10 @@ WORKDIR /app
 
 # 复制必要的文件
 COPY app.py .
-COPY requirements.txt .
+#COPY requirements.txt .
 
 # 使用 python3 -m pip 安装依赖
-RUN python3 -m pip install --user --upgrade pip && python3 -m pip install --user -r requirements.txt
+#RUN python3 -m pip install --user --upgrade pip && python3 -m pip install --user -r requirements.txt
 
 # 创建必要的目录
 RUN mkdir -p /app/har_and_cookies /app/generated_images
